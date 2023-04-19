@@ -1,7 +1,11 @@
-#!/usr/env/python3
+from bitarray import bitarray
+from jagaja import Jagaja
 
-def main():
-    print(f"Welcome to Mellon")
+saladus = b"Saladus!"
 
-if __name__ == "__main__":
-    main()
+salabitid = bitarray()
+salabitid.frombytes(bytes(saladus))
+print(salabitid.to01())
+
+tükid = list(map(bitarray.to01, Jagaja(salabitid.tobytes())))
+print("".join(tükid))
