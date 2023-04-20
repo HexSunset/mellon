@@ -8,6 +8,7 @@ class Jagaja:
         self.baidid.frombytes(sisend)
         self.indeks = 0
         self.pikkus = len(self.baidid)
+        self.tükkide_arv = self.pikkus / self.tüki_suurus
 
     def __iter__(self):
         return self
