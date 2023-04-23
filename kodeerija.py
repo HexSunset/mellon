@@ -9,7 +9,7 @@ class Kodeerija:
         self.fail = Image.open(pildi_nimi)
 
         if self.fail.mode not in ["RGB", "RGBA"]:
-            raise ValueError(f"Me toetame ainult pilte, mis on RGB või RGBA formaadis, antud pilt on: {self.fail.mode}")
+            raise ValueError(f"Program toetab ainult pilte, mis on RGB või RGBA formaadis, antud pilt on: {self.fail.mode}")
 
         # pikslite arv
         self.maht = self.fail.width * self.fail.height
@@ -28,7 +28,7 @@ class Kodeerija:
 
         # Kodeeritud info paigutus failis
         # -------------------------------
-        # Info pikkus (tükkide arv) (16-bitine arv, 2-biti kaupa paigutatud 8-sse pikslisse)
+        # Info pikkus baitides (16-bitine arv, 8 2-bitist tükki)
         # Mitu bitti on igas tükis (1-8)
         # Tükk
         # ...
