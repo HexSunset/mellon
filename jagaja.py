@@ -20,6 +20,7 @@ class Jagaja:
         algus = self.indeks
         lõpp = self.indeks + self.tüki_suurus
         tükk = self.baidid[algus:lõpp]
+        tükk = bitarray(tükk.to01().rjust(8, '0'))
         #print(f"algus = {algus}; lõpp = {lõpp}; tükk = {tükk.to01()}")
         self.indeks += self.tüki_suurus
         return tükk
