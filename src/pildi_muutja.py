@@ -16,6 +16,15 @@ def uus_piksel(algne_px: Tuple[int, int, int], sisend: bitarray, kanal: int):
     uus_px[kanal] = bitidest(uus)
     return tuple(uus_px)
 
+def võta_bitid(piksel: Tuple[int, int, int], kanal: int, bitide_arv=2) -> bitarray:
+    a = bitideks(piksel[kanal])
+    #mask = bitarray("11111111") >> (8 - bitide_arv)
+    mask = bitarray("00000011")
+
+    väljund = (a & mask)[-2:]
+
+    return väljund
+
 def bitideks(number: int) -> bitarray:
     """Muudab numbri bitarray objektiks, kõige väiksema väärtusega bitt kõige paremal."""
 
