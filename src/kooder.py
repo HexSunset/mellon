@@ -1,5 +1,5 @@
 from jagaja import Jagaja
-from pildi_muutja import PildiMuutja, uus_piksel, bitideks
+from pildi_muutja import PildiMuutja, uus_piksel, bitideks, bitidest
 
 class Kooder(PildiMuutja):
     """Pildimuutja alamklass, kodeerib binaarse info faili."""
@@ -12,17 +12,17 @@ class Kooder(PildiMuutja):
 
         for tükk in sisend:
             kanal = self.piksli_kanal()
-            algne_px = self.fail.getpixel(self.piksli_indeks())
+            algne_px = self.get_piksel()
             uus_px = uus_piksel(algne_px, tükk, kanal)
-            self.fail.putpixel(self.piksli_indeks(), uus_px)
+            self.set_piksel(uus_px)
 
             self.indeks += 1
 
         # Lisame 0-baidi
         for _ in Jagaja(b'\x00'):
             kanal = self.piksli_kanal()
-            algne_px = self.fail.getpixel(self.piksli_indeks())
+            algne_px = self.get_piksel()
             uus_px = uus_piksel(algne_px, bitideks(0), kanal)
-            self.fail.putpixel(self.piksli_indeks(), uus_px)
+            self.set_piksel(uus_px)
 
             self.indeks += 1
