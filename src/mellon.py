@@ -1,5 +1,5 @@
 from jagaja import Jagaja
-from kodeerija import Kooder
+from kooder import Kooder
 
 saladus = b"Saladus!"
 kodeerija = Kooder("must.png")
