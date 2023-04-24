@@ -1,8 +1,7 @@
 from jagaja import Jagaja
-from funktsioonid import *
-from pildi_muutja import PildiMuutja
+from pildi_muutja import PildiMuutja, uus_piksel, bitideks
 
-class Kodeerija(PildiMuutja):
+class Kooder(PildiMuutja):
     """Pildimuutja alamklass, kodeerib binaarse info faili."""
 
     # Kodeerib sisendi tükid faili otse, kõige lõppu paneb 0-baidi (b'\x00'), et dekodeerija teaks millal dekodeerimist lõpetada.
