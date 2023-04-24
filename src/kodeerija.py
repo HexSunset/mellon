@@ -1,43 +1,9 @@
-from PIL import Image
 from jagaja import Jagaja
-from typing import Tuple
 from funktsioonid import *
-import math
+from pildi_muutja import PildiMuutja
 
-class Kodeerija:
-    """Avab pildi ja kodeerib sinna kasutaja poolt antud sisendi(d)"""
-    
-    def __init__(self, pildi_nimi: str):
-        self.pildi_nimi = pildi_nimi
-        self.fail = Image.open(pildi_nimi)
-
-        if self.fail.mode not in ["RGB", "RGBA"]:
-            raise ValueError(f"Program toetab ainult pilte, mis on RGB või RGBA formaadis, antud pilt on: {self.fail.mode}")
-
-        # pikslite arv
-        self.maht = self.fail.width * self.fail.height
-        
-        # Igal pikslil kolm kasutatavat kanalit
-        self.maht *= 3
-
-        # See indeks sisaldab nii piksli indeksit kui ka värvikanalit
-        # Värvikanali kätte saamiseks: self.indeks % 3
-        # Piksli indeksi kätte saamiseks: math.floor(self.indeks / 3)
-        self.indeks = 0
-
-    # Destruktor
-    def __del__(self):
-        self.fail.save("SALAJANE_" + self.pildi_nimi)
-        self.fail.close()
-        
-    def piksli_indeks(self) -> Tuple[int, int]:
-        lineaarne_indeks = math.floor(self.indeks / 3)
-        y = math.floor(lineaarne_indeks / self.fail.width)
-        x = lineaarne_indeks % self.fail.width
-        return (x, y)
-
-    def piksli_kanal(self) -> int:
-        return self.indeks % 3
+class Kodeerija(PildiMuutja):
+    """Pildimuutja alamklass, kodeerib binaarse info faili."""
 
     # Kodeerib sisendi tükid faili otse, kõige lõppu paneb 0-baidi (b'\x00'), et dekodeerija teaks millal dekodeerimist lõpetada.
     def kodeeri_otse(self, sisend: Jagaja):
