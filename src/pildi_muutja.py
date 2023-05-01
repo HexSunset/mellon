@@ -45,7 +45,10 @@ class PildiMuutja:
         self.fail = Image.open(pildi_nimi)
 
         if self.fail.mode not in ["RGB", "RGBA"]:
-            raise ValueError(f"Program toetab ainult pilte, mis on RGB või RGBA formaadis, antud pilt on: {self.fail.mode}")
+            raise ValueError(f"Programm toetab ainult pilte, mis on RGB või RGBA formaadis, antud pilt on: {self.fail.mode}")
+
+        if self.fail.format not in ["PNG"]:
+            raise ValueError(f"Programm toetab hetkel ainult PNG faile.")
 
         # pikslite arv
         self.maht = self.fail.width * self.fail.height
@@ -60,7 +63,6 @@ class PildiMuutja:
 
     # Destruktor
     def __del__(self):
-        self.fail.save("muudetud_" + self.pildi_nimi)
         self.fail.close()
 
     def set_piksel(self, piksel: Tuple[int, int, int]):

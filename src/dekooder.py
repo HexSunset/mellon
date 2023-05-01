@@ -2,11 +2,6 @@ from bitarray import bitarray
 from pildi_muutja import PildiMuutja, bitideks, bitidest, võta_bitid
 
 class Dekooder(PildiMuutja):
-    # Me ei salvesta mingit faili, seega kirjutame destruktori ümber
-    def __del__(self):
-        self.fail.close()
-
-
     def dekodeeri_otse(self) -> bytes:
         väljund = bytearray()
 

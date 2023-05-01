@@ -4,6 +4,14 @@ from pildi_muutja import PildiMuutja, uus_piksel, bitideks, bitidest
 class Kooder(PildiMuutja):
     """Pildimuutja alamklass, kodeerib binaarse info faili."""
 
+    def __init__(self, sisend_pilt, väljund_pilt):
+        super().__init__(sisend_pilt)
+        self.väljundi_nimi = väljund_pilt
+
+    def __del__(self):
+        self.fail.save(self.väljundi_nimi)
+        self.fail.close()
+
     # Kodeerib sisendi tükid faili otse, kõige lõppu paneb 0-baidi (b'\x00'), et dekodeerija teaks millal dekodeerimist lõpetada.
     def kodeeri_otse(self, sisend: Jagaja):
         # TODO: korralik mahu arvutamine
