@@ -25,10 +25,10 @@ def võta_bitid(piksel: Tuple[int, int, int], kanal: int, bitide_arv=2) -> bitar
 
     return väljund
 
-def bitideks(number: int) -> bitarray:
+def bitideks(number: int, pikkus=8) -> bitarray:
     """Muudab numbri bitarray objektiks, kõige väiksema väärtusega bitt kõige paremal."""
 
-    biti_string = (bin(number)[2:]).rjust(8, '0')
+    biti_string = (bin(number)[2:]).rjust(pikkus, '0')
     väljund = bitarray(biti_string)
     return väljund
 
