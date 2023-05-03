@@ -15,11 +15,11 @@ väljund_pilt: str = args.väljund_pilt
 print(f"sisend: {saladus}")
 kooder = Kooder(sisend_pilt, väljund_pilt)
 sisend = Jagaja(saladus)
-kooder.kodeeri_plokkidena(sisend)
+kooder.kodeeri_otse(sisend)
 del kooder
 
 dekooder = Dekooder(väljund_pilt)
-väljund = dekooder.dekodeeri_plokid()
+väljund = dekooder.dekodeeri_otse()
 del dekooder
 
 print(f"väljund: {väljund}")
