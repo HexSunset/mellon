@@ -5,7 +5,15 @@ Pythonis implementeeritud steganograafia programm.
 - `bitarray` - bitimanipulatsioonid
 - `pillow` - pildifailide muutmine
 
-## TODO Kasutamine
+## Kasutamine
 ```sh
-$ python src/mellon.py [PILT]
+usage: mellon.py [-h] salajane_fail sisend_pilt väljund_pilt
+
+positional arguments:
+  salajane_fail  salajane fail, mille sisu peidetakse pilti
+  sisend_pilt    pilt, millesse peidetakse info
+  väljund_pilt   uus nimi, millena infot sisaldav pilt salvestatakse
+
+options:
+  -h, --help     show this help message and exit
 ```
