@@ -17,3 +17,9 @@ positional arguments:
 options:
   -h, --help     show this help message and exit
 ```
+
+## Projekti progress
+- [x] Naiivne kodeerimine/dekodeerimine
+- [x] PNG failid
+- [ ] JPEG failid
+- [ ] Targem (de)kodeerimisalgoritm
