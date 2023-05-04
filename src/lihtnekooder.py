@@ -1,7 +1,7 @@
 from jagaja import Jagaja
 from pildi_muutja import PildiMuutja, uus_piksel, bitideks, bitidest
 
-class Kooder(PildiMuutja):
+class LihtneKooder(PildiMuutja):
     """Pildimuutja alamklass, kodeerib binaarse info faili."""
 
     def __init__(self, sisend_pilt, väljund_pilt):

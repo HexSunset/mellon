@@ -1,6 +1,6 @@
 from jagaja import Jagaja
-from kooder import Kooder
-from dekooder import Dekooder
+from lihtnekooder import LihtneKooder
+from lihtnedekooder import LihtneDekooder
 import argparse
 
 arg_parser = argparse.ArgumentParser()
@@ -13,12 +13,12 @@ sisend_pilt: str = args.sisend_pilt
 väljund_pilt: str = args.väljund_pilt
 
 print(f"sisend: {saladus}")
-kooder = Kooder(sisend_pilt, väljund_pilt)
+kooder = LihtneKooder(sisend_pilt, väljund_pilt)
 sisend = Jagaja(saladus)
 kooder.kodeeri_otse(sisend)
 del kooder
 
-dekooder = Dekooder(väljund_pilt)
+dekooder = LihtneDekooder(väljund_pilt)
 väljund = dekooder.dekodeeri_otse()
 del dekooder
 

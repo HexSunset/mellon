@@ -1,7 +1,7 @@
 from bitarray import bitarray
 from pildi_muutja import PildiMuutja, bitideks, bitidest, võta_bitid
 
-class Dekooder(PildiMuutja):
+class LihtneDekooder(PildiMuutja):
     def dekodeeri_otse(self) -> bytes:
         väljund = bytearray()
 
