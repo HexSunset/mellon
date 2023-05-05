@@ -1,0 +1,25 @@
+* MELLON
+Pythonis kirjutatud steganograafia programm.
+
+** Vajalikud teegid
+- =bitarray= - bititaseme manipulatsioonid
+- =pillow= - pildifailide muutmine
+
+** Kasutamine
+#+BEGIN_SRC shell
+usage: mellon.py [-h] salajane_fail sisend_pilt väljund_pilt
+
+positional arguments:
+  salajane_fail  salajane fail, mille sisu peidetakse pilti
+  sisend_pilt    pilt, millesse peidetakse info
+  väljund_pilt   uus nimi, millena infot sisaldav pilt salvestatakse
+
+options:
+  -h, --help     show this help message and exit
+#+END_SRC
+
+** Projekti progress
+*** DONE Naiivne kodeerimine/dekodeerimine
+*** DONE PNG failid
+*** TODO Targem/turvalisem/efektiivsem algoritm
+*** TODO JPEG failid
