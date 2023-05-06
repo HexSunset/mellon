@@ -21,22 +21,23 @@ options:
 ** Projekti progress
 *** DONE Naiivne kodeerimine/dekodeerimine
 *** DONE PNG failid
-*** TODO Targem/turvalisem/efektiivsem algoritm
+*** TODO Targem/efektiivsem algoritm
 *** TODO JPEG failid
 
 ** Ploki kaupa kodeerimine
 
-*** Plokkide päis
-| Suurus      | Kirjeldus        |
-|-------------+------------------|
-| 4 * 8 bitti | 'MELLON' allkiri |
-| 8 bitti     | Plokkide arv     |
+*** Ploki päis
+| Suurus  | Kirjeldus             |
+|---------+-----------------------|
+| 1 bait  | MELLON allkiri        |
+| 1 bait  | Faili number          |
+| 1 bait  | Plokkide arv failis   |
+| 1 bait  | Ploki järjenumber     |
+| 4 baiti | Ploki pikkus baitides |
 
-*** Ploki formaat
-| Suurus   | Kirjeldus             |
-|----------+-----------------------|
-| 8 bitti  | Ploki järjenumber     |
-| 16 bitti | Ploki pikkus baitides |
-| ...      | ...                   |
-| 8 bitti  | Info                  |
-| ...      | ...                   |
+Terve päis võtab kokku 8 baiti ehk 64 bitti.
+
+Ühe ploki sisse mahub maksimaalselt 4 gigabaiti, ühe faili kohta saab olla maksimaalselt 255 plokki,
+seega maksimaalne failisuurus on ligi 1.1 terabaiti, mis on igaks realistlikuks juhtumiks piisav.
+
+Päisele järgneb ploki sisu.
