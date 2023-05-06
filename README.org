@@ -23,3 +23,20 @@ options:
 *** DONE PNG failid
 *** TODO Targem/turvalisem/efektiivsem algoritm
 *** TODO JPEG failid
+
+** Ploki kaupa kodeerimine
+
+*** Plokkide päis
+| Suurus      | Kirjeldus        |
+|-------------+------------------|
+| 4 * 8 bitti | 'MELLON' allkiri |
+| 8 bitti     | Plokkide arv     |
+
+*** Ploki formaat
+| Suurus   | Kirjeldus             |
+|----------+-----------------------|
+| 8 bitti  | Ploki järjenumber     |
+| 16 bitti | Ploki pikkus baitides |
+| ...      | ...                   |
+| 8 bitti  | Info                  |
+| ...      | ...                   |
