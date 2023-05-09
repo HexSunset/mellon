@@ -41,3 +41,12 @@ Terve päis võtab kokku 8 baiti ehk 64 bitti.
 seega maksimaalne failisuurus on ligi 1.1 terabaiti, mis on igaks realistlikuks juhtumiks piisav.
 
 Päisele järgneb ploki sisu.
+
+*** Baitide ühildamine
+X - kas 0 või 1
+0 - 0 bitt
+1 - 1 bitt
+
+Salajase baidi formaat - 111111XX
+Algse baidi formaat    - XXXXXXXX
+& operatsioon nende liitmiseks
