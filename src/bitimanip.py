@@ -1,6 +1,8 @@
 from bitarray import bitarray
 from typing import Tuple
 
+"""Bittide ja baitidega töötamise abifunktsioonid."""
+
 def bitideks(number: int, pikkus=8) -> bitarray:
     """Muudab numbri bitarray objektiks, kõige väiksema väärtusega bitt kõige paremal."""
 
