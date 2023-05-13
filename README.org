@@ -5,42 +5,29 @@ Pythonis kirjutatud steganograafia programm.
 - =bitarray= - bititaseme manipulatsioonid
 - =pillow= - pildifailide muutmine
 
-** Kasutamine
-#+BEGIN_SRC shell
-usage: mellon.py [-h] salajane_fail sisend_pilt väljund_pilt
+** Kodeerimine
 
-positional arguments:
-  salajane_fail  salajane fail, mille sisu peidetakse pilti
-  sisend_pilt    pilt, millesse peidetakse info
-  väljund_pilt   uus nimi, millena infot sisaldav pilt salvestatakse
+*** Kodeerimise protsess
 
-options:
-  -h, --help     show this help message and exit
-#+END_SRC
+Saladus - fail, mis kodeeritakse
+Seif - fail, millesse kodeeritakse
 
-** Projekti progress
-*** DONE Naiivne kodeerimine/dekodeerimine
-*** DONE PNG failid
-*** TODO Targem/efektiivsem algoritm
-*** TODO JPEG failid
+**** TODO Kui antakse mitu salajast faili, luuakse neist kõigepealt arhiiv, mis kodeeritakse seifi(desse).
+**** TODO Enne kodeerimist kontrollitakse, kas saladus mahub seifi, antakse kasutajale teada.
+**** TODO Enne saladuse kodeerimist kodeeritakse päis.
+**** TODO Kodeeritakse saladus, 1 bait ühes pikslis.
+**** TODO Mitme seif-faili korral tükeldatakse saladus enne kodeerimist.
 
-** Ploki kaupa kodeerimine
+*** Päise formaat
 
-*** Ploki päis
-| Suurus  | Kirjeldus             |
-|---------+-----------------------|
-| 1 bait  | MELLON allkiri        |
-| 1 bait  | Faili number          |
-| 1 bait  | Plokkide arv failis   |
-| 1 bait  | Ploki järjenumber     |
-| 4 baiti | Ploki pikkus baitides |
+| Kirjeldus         | Pikkus  |
+|-------------------+---------|
+| Faili checksum    | 4 baiti |
+| Ploki järjenumber | 1 bait  |
+| Plokkide arv      | 1 bait  |
+| Pikkus            | 2 baiti |
 
-Terve päis võtab kokku 8 baiti ehk 64 bitti.
-
-Ühe ploki sisse mahub maksimaalselt 4 gigabaiti, ühe faili kohta saab olla maksimaalselt 255 plokki,
-seega maksimaalne failisuurus on ligi 1.1 terabaiti, mis on igaks realistlikuks juhtumiks piisav.
-
-Päisele järgneb ploki sisu.
+Terve päis võtab 8 baiti
 
 *** Baitide ühildamine
 X - kas 0 või 1
