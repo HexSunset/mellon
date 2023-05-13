@@ -1,10 +1,6 @@
 from pilt import PildiHaldur
+from saladus import Saladus
 
-class Kodeerija:
-    __pildi_haldur: None | PildiHaldur
-
-    def __init__(self):
-        self.__pildi_haldur = None
-
-    def ava_pilt(self, pildi_nimi: str):
-        self.__pildi_haldur = PildiHaldur(pildi_nimi)
+class Kodeerija(PildiHaldur):
+    def kodeeri(self, saladus: Saladus):
+        raise NotImplemented
