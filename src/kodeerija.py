@@ -1,6 +1,6 @@
-from pildi_haldur import PildiHaldur
+from pilt import PildiHaldur
 
-class PlokiHaldur:
+class Kodeerija:
     __pildi_haldur: None | PildiHaldur
 
     def __init__(self):
