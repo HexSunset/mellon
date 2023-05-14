@@ -20,12 +20,12 @@ Seif - fail, millesse kodeeritakse
 
 *** Päise formaat
 
-| Kirjeldus         | Pikkus  |
-|-------------------+---------|
-| Faili checksum    | 4 baiti |
-| Ploki järjenumber | 1 bait  |
-| Plokkide arv      | 1 bait  |
-| Pikkus            | 2 baiti |
+| Kirjeldus            | Pikkus  |
+|----------------------+---------|
+| Faili kontrollsumma  | 2 baiti |
+| Ploki järjenumber    | 1 bait  |
+| Plokkide arv         | 1 bait  |
+| Pikkus               | 4 baiti |
 
 Terve päis võtab 8 baiti
 
