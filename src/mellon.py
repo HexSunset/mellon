@@ -1,32 +1,37 @@
-from plokk import Plokk
+from plokk import Plokk, PlokkideHaldaja
 from pilt import PildiHaldaja
 from bitimanip import bitideks
-from bitarray import bitarray
+from typing import Tuple
+#from bitarray import bitarray
 import sys
+import argparse
 
 def main():
-    saladus = sys.argv[1]
-    seif = sys.argv[2]
-    seifi_nimi = sys.argv[3]
-    
-    baidid = None
-    with open(saladus, "rb") as f:
-        baidid = f.read()
+    # Saame argumendid
+    parser = argparse.ArgumentParser(
+        prog='MELLON',
+        description='Mitme faili põhine steganograafia programm.')
+    parser.add_argument('saladuse_fail')
+    parser.add_argument('seifi_failid', nargs='+')
+    args = parser.parse_args()
 
-    salajane_plokk = Plokk(1, 1, baidid)
+    saladuse_fail = args.saladuse_fail
+    seifi_failid = args.seifi_failid
 
-    seifi_haldaja = PildiHaldaja(seif)
-    seifi_haldaja.kodeeri_plokk(salajane_plokk)
-    seifi_haldaja.salvesta_pilt(seifi_nimi)
+    # Teeme asju
+    saladuse_haldaja = PlokkideHaldaja(saladuse_fail)
+    pildi_haldajad = [PildiHaldaja(nimi) for nimi in seifi_failid]
+    pildi_nimed = seifi_failid
+    pildi_suurused = [pilt.get_pikslite_arv() for pilt in pildi_haldajad]
+    pildid_nimi_suurus = list(zip(pildi_nimed, pildi_suurused))
 
-    seifi_avaja = PildiHaldaja(seifi_nimi)
-    plokk = seifi_avaja.dekodeeri_plokk()
-    print(f"dekodeeritud:")
-    print(f"\tkontrollsumma: {plokk.kontroll_summa()}")
-    print(f"\tploki_number: {plokk.järjenumber()[0]}/{plokk.järjenumber()[1]}")
-    print(f"\tsisu_pikkus: {plokk.sisu_pikkus()}")
-    print(f"\tploki_sisu:")
-    for bait in plokk.sisu_baidid():
-        print(f"\t\t{bitideks(bait)}")
+    plokid_piltides = saladuse_haldaja.jaota_saladus_seifide_vahel(pildid_nimi_suurus)
+    for (pildi_nimi, plokk) in plokid_piltides.items():
+        indeks = pildi_nimed.index(pildi_nimi)
+        haldaja = pildi_haldajad[indeks]
+        haldaja.kodeeri_plokk(plokk)
+        haldaja.salvesta_pilt("secret_" + pildi_nimi)
 
-main()
+
+if __name__ == "__main__":
+    main()
