@@ -1,5 +1,5 @@
 from plokk import Plokk
-from pilt import PildiHaldur
+from pilt import PildiHaldaja
 from bitimanip import bitideks
 from bitarray import bitarray
 import sys
@@ -15,11 +15,11 @@ def main():
 
     salajane_plokk = Plokk(1, 1, baidid)
 
-    seifi_haldaja = PildiHaldur(seif)
+    seifi_haldaja = PildiHaldaja(seif)
     seifi_haldaja.kodeeri_plokk(salajane_plokk)
     seifi_haldaja.salvesta_pilt(seifi_nimi)
 
-    seifi_avaja = PildiHaldur(seifi_nimi)
+    seifi_avaja = PildiHaldaja(seifi_nimi)
     plokk = seifi_avaja.dekodeeri_plokk()
     print(f"dekodeeritud:")
     print(f"\tkontrollsumma: {plokk.kontroll_summa()}")

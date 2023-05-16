@@ -7,7 +7,7 @@ from plokk import Plokk, arvuta_kontrollsumma
 class DekodeerimisViga(Exception):
     pass
 
-class PildiHaldur:
+class PildiHaldaja:
     __pildi_nimi: str
     __pilt: Image.Image
 
