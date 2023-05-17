@@ -28,12 +28,3 @@ Seif - fail, millesse kodeeritakse
 | Pikkus               | 4 baiti |
 
 Terve päis võtab 8 baiti
-
-*** Baitide ühildamine
-- X - kas 0 või 1
-- 0 - 0 bitt
-- 1 - 1 bitt
-
-Salajase baidi formaat - 111111XX
-Algse baidi formaat    - XXXXXXXX
-& operatsioon nende liitmiseks
