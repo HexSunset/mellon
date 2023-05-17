@@ -30,9 +30,9 @@ Seif - fail, millesse kodeeritakse
 Terve päis võtab 8 baiti
 
 *** Baitide ühildamine
-X - kas 0 või 1
-0 - 0 bitt
-1 - 1 bitt
+- X - kas 0 või 1
+- 0 - 0 bitt
+- 1 - 1 bitt
 
 Salajase baidi formaat - 111111XX
 Algse baidi formaat    - XXXXXXXX
