@@ -13,10 +13,10 @@ Saladus - fail, mis kodeeritakse
 Seif - fail, millesse kodeeritakse
 
 **** TODO Kui antakse mitu salajast faili, luuakse neist kõigepealt arhiiv, mis kodeeritakse seifi(desse).
-**** TODO Enne kodeerimist kontrollitakse, kas saladus mahub seifi, antakse kasutajale teada.
-**** TODO Enne saladuse kodeerimist kodeeritakse päis.
-**** TODO Kodeeritakse saladus, 1 bait ühes pikslis. 2 bitti punases kanalis, 3 bitti rohelises ja sinises.
-**** TODO Mitme seif-faili korral tükeldatakse saladus enne kodeerimist.
+**** DONE Enne kodeerimist kontrollitakse, kas saladus mahub seifi, antakse kasutajale teada.
+**** DONE Enne saladuse kodeerimist kodeeritakse päis.
+**** DONE Kodeeritakse saladus, 1 bait ühes pikslis. 2 bitti punases kanalis, 3 bitti rohelises ja sinises.
+**** DONE Mitme seif-faili korral tükeldatakse saladus enne kodeerimist.
 
 *** Päise formaat
 
