@@ -1,8 +1,9 @@
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 from typing import Tuple
 from bitarray import bitarray
 from bitimanip import bitideks, bitidest, joonda_bitid
 from plokk import Plokk, arvuta_kontrollsumma
+from pathlib import Path
 
 class DekodeerimisViga(Exception):
     pass
@@ -16,10 +17,19 @@ class PildiHaldaja:
 
     def __init__(self, pildi_nimi: str):
         self.__pildi_nimi = pildi_nimi
-        self.__pilt = Image.open(pildi_nimi)
+
+        try:
+            self.__pilt = Image.open(Path(pildi_nimi), formats=["PNG"])
+        except UnidentifiedImageError:
+            raise ValueError(f"Fail {pildi_nimi} ei ole PNG fail.") from None
+        
         self.__indeks = 0
 
+    def get_faili_nimi(self) -> str:
+        return self.__pildi_nimi
+
     def salvesta_pilt(self, nimi: str):
+        print(f"{self.get_faili_nimi()} salvestatud kui {nimi}")
         self.__pilt.save(nimi)
 
     def kodeeri_bait(self, sisend: bitarray):
@@ -82,13 +92,17 @@ class PildiHaldaja:
             self.kodeeri_bait(bait)
 
     def dekodeeri_plokk(self):
+        if self.get_lineaarne_indeks() >= self.get_pikslite_arv():
+            raise DekodeerimisViga("Fail on lõpuni dekodeeritud")
+        
         # Päis
         kontroll_summa = bitidest(self.dekodeeri_baidid(2))
         järjenumber = bitidest(self.dekodeeri_bait())
         plokke_kokku = bitidest(self.dekodeeri_bait())
         pikkus = bitidest(self.dekodeeri_baidid(4))
+
         if self.get_pikslite_arv() - self.get_lineaarne_indeks() < pikkus:
-            print(f"indeks: {self.get_lineaarne_indeks()}")
+            #print(f"indeks: {self.get_lineaarne_indeks()}")
             raise DekodeerimisViga("Kodeeritud info pikkus on suurem kui faili maht.") 
 
         # Sisu
