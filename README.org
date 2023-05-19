@@ -1,5 +1,5 @@
 * MELLON
-Pythonis kirjutatud steganograafia programm.
+Pythonis kirjutatud steganograafia programm. Lubab mitut faili korraga (de)kodeerida.
 
 ** Vajalikud teegid
 - =bitarray= - bititaseme manipulatsioonid
