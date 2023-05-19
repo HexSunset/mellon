@@ -28,3 +28,14 @@ Seif - fail, millesse kodeeritakse
 | Pikkus               | 4 baiti |
 
 Terve päis võtab 8 baiti
+
+** Kasutajaliides
+
+*** TODO Failide valimine
+
+*** TODO Eraldi thread GUI ja päris kodeerimisprotsessi jaoks
+
+*** TODO kodeerimis-errorite näitamine GUIs
+
+*** TODO kodeerimise progressi jälgimine GUIs, loading-barid jne
+**** TODO Channelite kaudu threadide vahel info vahetamine, et progressi näidata
