@@ -4,6 +4,7 @@ Pythonis kirjutatud steganograafia programm.
 ** Vajalikud teegid
 - =bitarray= - bititaseme manipulatsioonid
 - =pillow= - pildifailide muutmine
+- =DearPyGUI= - kasutajaliides
 
 ** Kodeerimine
 
