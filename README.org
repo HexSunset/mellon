@@ -6,6 +6,15 @@ Pythonis kirjutatud steganograafia programm. Lubab mitut faili korraga (de)kodee
 - =pillow= - pildifailide muutmine
 - =PySimpleGUI= - kasutajaliides
 
+** Kasutamine
+1. Installi vajalikud teegid
+2. Jooksuta =src/mellon.py= fail.
+3. Vali kas soovid kodeerida või dekodeerida.
+4. Kodeerimisel vali vajalikud failid ja vajuta nuppu =Kodeeri=.
+5. Dekodeerimisel vali vajalikud failid ja vajuta nuppu =Dekodeeri=. Pane saladuse uue nime lõppu kindlasti =.zip.bz2=,
+   see on formaat, millena saladused salvestatakse ja lisades selle failinime lõppu tunneb operatsioonisüsteem kohe ära,
+   mis failiga tegemist on.
+
 ** Kodeerimine
 
 *** Kodeerimise protsess
