@@ -80,8 +80,6 @@ def kodeeri():
             seifid = list(väärtused["SEIFID"].split(';'))
             seifide_uus_kaust = väärtused["SEIFIDE_UUS_KAUST"]
 
-            print(f"{saladused}\n{seifid}\n{seifide_uus_kaust}")
-
             try:
                 kodeeri_seifidesse(seifid, saladused, seifide_uus_kaust)
             except Exception as e:
