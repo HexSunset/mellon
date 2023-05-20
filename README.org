@@ -4,7 +4,7 @@ Pythonis kirjutatud steganograafia programm. Lubab mitut faili korraga (de)kodee
 ** Vajalikud teegid
 - =bitarray= - bititaseme manipulatsioonid
 - =pillow= - pildifailide muutmine
-- =DearPyGUI= - kasutajaliides
+- =PySimpleGUI= - kasutajaliides
 
 ** Kodeerimine
 
