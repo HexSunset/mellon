@@ -32,16 +32,12 @@ Terve päis võtab 8 baiti
 
 ** Kasutajaliides
 
-*** TODO Eraldi thread GUI ja päris kodeerimisprotsessi jaoks
-*** TODO Failide valimine
-*** TODO kodeerimis-errorite näitamine GUIs
-*** TODO kodeerimise progressi jälgimine GUIs, loading-barid jne
-**** TODO Channelite kaudu threadide vahel info vahetamine, et progressi näidata
+*** DONE Failide valimine
+*** DONE kodeerimis-errorite näitamine GUIs
 
 ** Programmi töö
 
 1. Kasutaja valib kas kodeerida või dekodeerida.
 2. Kasutaja valib failid, mida (de)kodeerida.
 3. Kasutaja valib sihtkoha, kuhu faili (de)kodeerida.
-4. Jooksutame uue lõime (de)kodeerimise funktsiooniga.
-5. Threadi progress progress-barina.
+4. Teeme ära mis vaja
