@@ -15,7 +15,7 @@ Pythonis kirjutatud steganograafia programm. Lubab mitut faili korraga (de)kodee
    see on formaat, millena saladused salvestatakse ja lisades selle failinime lõppu tunneb operatsioonisüsteem kohe ära,
    mis failiga tegemist on.
 
-** Kodeerimine
+** Tehniline info
 
 *** Kodeerimise protsess
 
