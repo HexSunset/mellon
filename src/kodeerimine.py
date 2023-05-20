@@ -45,7 +45,7 @@ def dekodeeri_seifidest(seifi_failid: list[str], väljund_fail: str, kanal=None)
         print(f"Loodud fail {väljund_fail}")
 
     return
-    
+
 def kodeeri_seifidesse(seifi_failid: list[str], saladused: list[str], seifide_uus_kaust: str):
     saladuse_fail = loo_arhiiv(saladused)
     saladuse_haldaja = PlokkideHaldaja(str(saladuse_fail))
@@ -65,7 +65,7 @@ def kodeeri_seifidesse(seifi_failid: list[str], saladused: list[str], seifide_uu
         seifi_nimi = os.path.basename(seifi_haldaja.get_faili_nimi())
         if not (os.path.exists(seifide_uus_kaust) and os.path.isdir(seifide_uus_kaust)):
             os.mkdir(seifide_uus_kaust)
-            
+
         uus_nimi = Path(seifide_uus_kaust, seifi_nimi)
         seifi_haldaja.salvesta_pilt(str(uus_nimi))
 

@@ -34,7 +34,7 @@ class PlokkideHaldaja:
             plokid.append((seif, list()))
 
         plokkide_arv = 0
-            
+
         while saladuse_indeks < self.saladuse_pikkus:
             for (i, maht) in enumerate(seifide_mahud):
                 baitide_arv = min(MAX_PLOKI_PIKKUS - 8, võrdse_ploki_pikkus, maht - 8)

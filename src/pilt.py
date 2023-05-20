@@ -22,7 +22,7 @@ class PildiHaldaja:
             self.__pilt = Image.open(Path(pildi_nimi), formats=["PNG"])
         except UnidentifiedImageError:
             raise ValueError(f"Fail {pildi_nimi} ei ole PNG fail.") from None
-        
+
         self.__indeks = 0
 
     def get_faili_nimi(self) -> str:
@@ -63,7 +63,7 @@ class PildiHaldaja:
 
     def dekodeeri_bait(self) -> bitarray:
         """Dekodeeri üks bait. Suurendab indeksit"""
-        
+
         piksel = self.get_piksel()
 
         punane = bitideks(piksel[0])
@@ -94,7 +94,7 @@ class PildiHaldaja:
     def dekodeeri_plokk(self):
         if self.get_lineaarne_indeks() >= self.get_pikslite_arv():
             raise DekodeerimisViga("Fail on lõpuni dekodeeritud")
-        
+
         # Päis
         kontroll_summa = bitidest(self.dekodeeri_baidid(2))
         järjenumber = bitidest(self.dekodeeri_bait())
@@ -103,14 +103,14 @@ class PildiHaldaja:
 
         if self.get_pikslite_arv() - self.get_lineaarne_indeks() < pikkus:
             #print(f"indeks: {self.get_lineaarne_indeks()}")
-            raise DekodeerimisViga("Kodeeritud info pikkus on suurem kui faili maht.") 
+            raise DekodeerimisViga("Kodeeritud info pikkus on suurem kui faili maht.")
 
         # Sisu
         baidid = self.dekodeeri_baidid(pikkus).tobytes()
 
         if kontroll_summa != arvuta_kontrollsumma(baidid):
             raise DekodeerimisViga("Dekodeeritud kontrollsumma ja arvutatud kontrollsumma ei klapi")
-        
+
         väljund = Plokk(järjenumber, plokke_kokku, baidid)
 
 
@@ -132,7 +132,7 @@ class PildiHaldaja:
 
     def get_kõrgus(self) -> int:
         return self.__pilt.size[1]
- 
+
     def get_laius(self) -> int:
         return self.__pilt.size[0]
 

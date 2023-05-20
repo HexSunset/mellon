@@ -1,8 +1,5 @@
 from kodeerimine import dekodeeri_seifidest, kodeeri_seifidesse
-from multiprocessing import Process, Queue
-
 import PySimpleGUI as sg
-import pathlib
 import sys
 
 def main():
@@ -19,7 +16,7 @@ def main():
     aken = sg.Window("Mellon", layout=esimesed_valikud)
 
     while True:
-        sündmus, väärtused = aken.read()
+        sündmus, _ = aken.read()
 
         if sündmus == "-LÕPETA-" or sündmus == sg.WIN_CLOSED:
             aken.close()
@@ -69,7 +66,7 @@ def kodeeri():
             sg.Column(väljund),
         ]
     ]
-    
+
     aken = sg.Window("Mellon kodeerija", layout=nuppude_paigutus)
     while True:
         sündmus, väärtused = aken.read()
@@ -127,7 +124,7 @@ def dekodeeri():
             sg.Column(väljund),
         ]
     ]
-    
+
     aken = sg.Window("Mellon dekodeerija", layout=nuppude_paigutus)
     while True:
         sündmus, väärtused = aken.read()

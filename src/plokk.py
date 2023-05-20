@@ -60,5 +60,3 @@ def arvuta_kontrollsumma(baidid: bytes) -> int:
     summa = sum(baidid)
 
     return summa % max_suurus
-
-
