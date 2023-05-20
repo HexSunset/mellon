@@ -1,6 +1,5 @@
 from kodeerimine import dekodeeri_seifidest, kodeeri_seifidesse
 import argparse
-from failid import *
 
 def main():
     # Saame argumendid
@@ -16,6 +15,7 @@ def main():
     seifi_failid = args.seifid
     dekodeerimisfail = args.dekodeeri_faili
 
+    # Teeme asju
     if dekodeerimisfail != "":
         dekodeeri_seifidest(seifi_failid, dekodeerimisfail)
     else:
