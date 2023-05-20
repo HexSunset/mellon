@@ -8,7 +8,7 @@ def dekodeeri_seifidest(seifi_failid: list[str], väljund_fail: str, kanal=None)
 
     for seifi_nimi in seifi_failid:
         seifi_haldaja = PildiHaldaja(seifi_nimi)
-        print(f"{seifi_nimi}:")
+        print(f"Seif {seifi_nimi}:")
         while True:
             try:
                 uus_plokk = seifi_haldaja.dekodeeri_plokk()
@@ -29,6 +29,9 @@ def dekodeeri_seifidest(seifi_failid: list[str], väljund_fail: str, kanal=None)
                 else:
                     raise e
 
+    if len(plokid) == 0:
+        raise DekodeerimisViga(f"Seifidest ei leitud ühtegi kodeeritud plokki.")
+
     if len(plokid) != plokkide_arv:
         raise DekodeerimisViga(f"Kõiki plokke ei suudetud dekodeerida. Dekodeeriti: {len(plokid)} plokki, kokku kodeeritud: {plokkide_arv} plokki.")
 
@@ -43,7 +46,7 @@ def dekodeeri_seifidest(seifi_failid: list[str], väljund_fail: str, kanal=None)
 
     return
     
-def kodeeri_seifidesse(seifi_failid: list[str], saladused: list[str], kanal=None):
+def kodeeri_seifidesse(seifi_failid: list[str], saladused: list[str], seifide_uus_kaust: str):
     saladuse_fail = loo_arhiiv(saladused)
     saladuse_haldaja = PlokkideHaldaja(str(saladuse_fail))
     print(f"Saladus: {saladuse_haldaja.faili_nimi()} ({saladuse_haldaja.saladuse_pikkus} baiti)")
@@ -59,7 +62,13 @@ def kodeeri_seifidesse(seifi_failid: list[str], saladused: list[str], kanal=None
             summa += plokk.sisu_pikkus()
             seifi_haldaja.kodeeri_plokk(plokk)
         print(f"\tKokku: {sum([plokk.sisu_pikkus() for plokk in plokid])}")
-        seifi_nimi = seifi_haldaja.get_faili_nimi()
-        uus_nimi = os.path.dirname(seifi_nimi) + "/saladusega_" + os.path.basename(seifi_nimi)
-        seifi_haldaja.salvesta_pilt(uus_nimi)
+        seifi_nimi = os.path.basename(seifi_haldaja.get_faili_nimi())
+        if not (os.path.exists(seifide_uus_kaust) and os.path.isdir(seifide_uus_kaust)):
+            os.mkdir(seifide_uus_kaust)
+            
+        uus_nimi = Path(seifide_uus_kaust, seifi_nimi)
+        seifi_haldaja.salvesta_pilt(str(uus_nimi))
+
+    del saladuse_haldaja
     print(f"Kodeeritud: {summa} baiti.")
+    print(f"Kodeerimine tehtud!")
