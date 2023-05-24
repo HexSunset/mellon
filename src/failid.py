@@ -5,6 +5,8 @@ import datetime
 import os
 
 def lühenda_faili_nimed(failid: list[str]) -> list[str]:
+    if len(failid) == 1:
+        return [os.path.basename(failid[0])]
     ühine_nimi = os.path.commonprefix(failid)
     return [fail[len(ühine_nimi):] for fail in failid]
 

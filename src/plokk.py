@@ -3,7 +3,7 @@ from bitimanip import bitideks
 from typing import Tuple
 
 BAIT = 8
-MAX_PLOKI_PIKKUS = 2 ** (4 * 8)
+MAX_PLOKI_PIKKUS = 2 ** (2 * 8) - 1
 PÄISE_PIKKUS_BAITIDES = 8
 
 class Plokk:
